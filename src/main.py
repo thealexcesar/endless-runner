@@ -1,11 +1,9 @@
-import pygame
+import os.path
 
-pygame.init()
+from game import Game
 
-window = pygame.display.set_mode(size=(600,480))
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            quit()
+assets = "../assets"
+if __name__ == "__main__":
+    os.makedirs(assets) if not os.path.exists(assets) else print("Assets folder already exists.")
+    game = Game()
+    game.run()
